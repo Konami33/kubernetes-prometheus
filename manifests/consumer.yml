@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  namespace: padok-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - name: consumer
+        image: your-docker-registry/consumer:latest
+        env:
+        - name: REDIS_ADDR
+          value: "redis:6379"
+        - name: REDIS_QUEUE
+          value: "padok"
+        ports:
+        - containerPort: 8080

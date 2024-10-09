@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: producer
+  namespace: padok-app
+spec:
+  selector:
+    app: producer
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consumer
+  namespace: padok-app
+spec:
+  selector:
+    app: consumer
+  ports:
+    - port: 80
+      targetPort: 8080

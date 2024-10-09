@@ -1,0 +1,5 @@
+apiVersion: apps/v1
+Kind: Namespace
+metadata:
+  name: padok
+
